@@ -1,3 +1,3 @@
 # Arduino
 
-This repository is for making Arduino project.
+This repository is for making Arduino projects.
