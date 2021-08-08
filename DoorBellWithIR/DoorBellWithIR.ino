@@ -16,8 +16,10 @@ int ledOn = false;
 
 //notes in the melody
 int melody[] = {NOTE_C4, NOTE_G3, NOTE_G3, NOTE_A3, NOTE_G3, 0, NOTE_B3, NOTE_C4};
+int melody2[] = {NOTE_C4, NOTE_G3};
 //note durations. 4=quarter note / 8=eighth note
-int noteDurations[] = {4, 8, 8, 4, 4, 4, 4, 4}; // include the library code:
+int noteDurations[] = {4, 8, 8, 4, 4, 4, 4, 4}; 
+int noteDurations2[] = {4,4}; 
 
 // initialize the library with the numbers of the interface pins
 LiquidCrystal lcd(7, 8, 9, 10, 11, 12);
@@ -76,8 +78,6 @@ void loop() {
       //the note's duration +30%, then change to 1.30
       int pauseBetweenNotes = noteDuration * 1.00;
       delay(pauseBetweenNotes);
-      //stop the tone playing
-      //noTone(buzzerPin);
     }
     delay(3000);
     lcd.setCursor(0, 1);
@@ -92,20 +92,50 @@ void loop() {
       case 0xFF6897:
         lcd.clear();
         lcd.print("Press button"); // "0"
+        for (int thisNote = 0; thisNote < 2; thisNote++)
+        {
+          int noteDuration = 1000 / noteDurations2 [thisNote];
+          TimerFreeTone(buzzerPin, melody2 [thisNote], noteDuration);
+          delay(noteDuration);
+        }
         break;
       case 0xFF30CF:
         lcd.clear();
         lcd.print("Working >0<"); // "1"
+        for (int thisNote = 0; thisNote < 2; thisNote++)
+        {
+          int noteDuration = 1000 / noteDurations2 [thisNote];
+          TimerFreeTone(buzzerPin, melody2 [thisNote], noteDuration);
+          delay(noteDuration);
+        }
         break;
       case 0xFF18E7:
         lcd.clear();
         lcd.print("Busy! )0("); // "2"
+        for (int thisNote = 0; thisNote < 2; thisNote++)
+        {
+          int noteDuration = 1000 / noteDurations2 [thisNote];
+          TimerFreeTone(buzzerPin, melody2 [thisNote], noteDuration);
+          delay(noteDuration);
+        }
         break;
       case 0xFF7A85:
         lcd.clear();
         lcd.print("Sleeping zZZ"); // "3"
+        for (int thisNote = 0; thisNote < 2; thisNote++)
+        {
+          int noteDuration = 1000 / noteDurations2 [thisNote];
+          TimerFreeTone(buzzerPin, melody2 [thisNote], noteDuration);
+          delay(noteDuration);
+        }
         break;
       case 0xFF9867:
+        for (int thisNote = 0; thisNote < 2; thisNote++)
+        {
+          int noteDuration = 1000 / noteDurations2 [thisNote];
+          TimerFreeTone(buzzerPin, melody2 [thisNote], noteDuration);
+          delay(noteDuration);
+        }
         lcd.setCursor(0, 1);
         lcd.print("Please come in"); // "EQ"
         digitalWrite(gPin, HIGH); // green LED on
