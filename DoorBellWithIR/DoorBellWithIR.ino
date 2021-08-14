@@ -90,46 +90,62 @@ void loop() {
     switch (results.value)
     {
       case 0xFF6897:
-        lcd.clear();
-        lcd.print("Press button"); // "0"
+        delay(500);
         for (int thisNote = 0; thisNote < 2; thisNote++)
         {
           int noteDuration = 1000 / noteDurations2 [thisNote];
           TimerFreeTone(buzzerPin, melody2 [thisNote], noteDuration);
           delay(noteDuration);
         }
+        lcd.clear();
+        lcd.print("Press button ^.^"); // "0"
         break;
       case 0xFF30CF:
+        delay(500);
+        for (int thisNote = 0; thisNote < 2; thisNote++)
+        {
+          int noteDuration = 1000 / noteDurations2 [thisNote];
+          TimerFreeTone(buzzerPin, melody2 [thisNote], noteDuration);
+          delay(noteDuration);
+        }
         lcd.clear();
         lcd.print("Working >0<"); // "1"
-        for (int thisNote = 0; thisNote < 2; thisNote++)
-        {
-          int noteDuration = 1000 / noteDurations2 [thisNote];
-          TimerFreeTone(buzzerPin, melody2 [thisNote], noteDuration);
-          delay(noteDuration);
-        }
         break;
       case 0xFF18E7:
+        delay(500);
+        for (int thisNote = 0; thisNote < 2; thisNote++)
+        {
+          int noteDuration = 1000 / noteDurations2 [thisNote];
+          TimerFreeTone(buzzerPin, melody2 [thisNote], noteDuration);
+          delay(noteDuration);
+        }
         lcd.clear();
         lcd.print("Busy! )0("); // "2"
-        for (int thisNote = 0; thisNote < 2; thisNote++)
-        {
-          int noteDuration = 1000 / noteDurations2 [thisNote];
-          TimerFreeTone(buzzerPin, melody2 [thisNote], noteDuration);
-          delay(noteDuration);
-        }
         break;
       case 0xFF7A85:
-        lcd.clear();
-        lcd.print("Sleeping zZZ"); // "3"
+        delay(500);
         for (int thisNote = 0; thisNote < 2; thisNote++)
         {
           int noteDuration = 1000 / noteDurations2 [thisNote];
           TimerFreeTone(buzzerPin, melody2 [thisNote], noteDuration);
           delay(noteDuration);
         }
+        lcd.clear();
+        lcd.print("Sleeping zZZ"); // "3"
+        break;
+        case 0xFF10EF:
+        delay(500);
+        for (int thisNote = 0; thisNote < 2; thisNote++)
+        {
+          int noteDuration = 1000 / noteDurations2 [thisNote];
+          TimerFreeTone(buzzerPin, melody2 [thisNote], noteDuration);
+          delay(noteDuration);
+        }
+        lcd.clear();
+        lcd.print("Not here >.<"); // "3"
         break;
       case 0xFF9867:
+        delay(500);
         for (int thisNote = 0; thisNote < 2; thisNote++)
         {
           int noteDuration = 1000 / noteDurations2 [thisNote];
@@ -138,6 +154,7 @@ void loop() {
         }
         lcd.setCursor(0, 1);
         lcd.print("Please come in"); // "EQ"
+        delay(500);
         digitalWrite(gPin, HIGH); // green LED on
         delay(3000);
         digitalWrite(gPin, LOW); // green LED off
